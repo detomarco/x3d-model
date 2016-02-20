@@ -1,114 +1,110 @@
 <!DOCTYPE html>
 <html style='width:100%; height:100%; border:0; margin:0; padding:0;'>
-
-<head>
-    <meta http-equiv='X-UA-Compatible' content='chrome=1' />
-    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
-    <meta http-equiv='Content-Type' content='text/html;charset=utf-8' />
-    <link rel='stylesheet' type='text/css' href='http://www.x3dom.org/x3dom/release/x3dom.css' />
+  <head>
+    <meta http-equiv='X-UA-Compatible' content='chrome=1'/>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'/>
+    <meta http-equiv='Content-Type' content='text/html;charset=utf-8'/>
+    <link rel='stylesheet' type='text/css' href='http://www.x3dom.org/x3dom/release/x3dom.css'/>
     <script type='text/javascript' src='http://www.x3dom.org/x3dom/release/x3dom.js'></script>
-    <style>
-    .x3dom-logContainer {
-        bottom: 0px;
-        position: absolute;
-    }
+    <style>.x3dom-logContainer { bottom: 0px; position: absolute; }
     </style>
-</head>
-
-<body style='width:100%; height:100%; border:0; margin:0; padding:0;'>
-    <div id='HUDs_Div'>
-        <div id='X3DOM_AOPT_Links' class='group' style='margin:26px 2px 2px; padding:4px; background-color:rgba(199,202,204,.7); position:absolute; z-index:1000;'>
-            <a href='http://www.x3dom.org'>X3DOM
-        </a> output created with
-            <a href='http://www.instantreality.org'>InstantReality
-        </a> aopt tool.
-        </div>
-        <div id='Interaction_Toolbox' style='margin:2px; padding:4px 150px 4px 4px; background-color:rgba(199,202,204,.7); position:absolute; z-index:1000; right:0px; top:0px;'>
-            <table>
-                <tr>
-                    <td>Navigation Mode:
-                    </td>
-                    <td align='right'>
-                        <select style='float:right;' onchange='document.getElementById(&apos;x3dElement&apos;).runtime[value]();'>
-                            <option selected='selected' value='examine'>Examine
-                            </option>
-                            <option value='turnTable'>TurnTable
-                            </option>
-                            <option value='lookAt'>LookAt
-                            </option>
-                            <option value='lookAround'>LookAround
-                            </option>
-                            <option value='fly'>Fly
-                            </option>
-                            <option value='freeFly'>FreeFly
-                            </option>
-                            <option value='helicopter'>Helicopter
-                            </option>
-                            <option value='walk'>Walk
-                            </option>
-                            <option value='noNav'>None
-                            </option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Debug Display:
-                    </td>
-                    <td align='right'>
-                        <input type='checkbox' onclick='document.getElementById(&apos;x3dElement&apos;).runtime.statistics(this.checked);'>
-                        </input> Stats
-                        <input type='checkbox' onclick='document.getElementById(&apos;x3dElement&apos;).runtime.debug();'>
-                        </input> Log
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <button onclick='document.getElementById(&apos;x3dElement&apos;).runtime.showAll("negY");'> Show Everything
-                        </button>
-                    </td>
-                    <td>
-                        <button onclick='document.getElementById(&apos;x3dElement&apos;).runtime.resetView();'> Reset View
-                        </button>
-                    </td>
-                </tr>
-            </table>
-        </div>
+  </head>
+  <body style='width:100%; height:100%; border:0; margin:0; padding:0;'>
+    <div id='HUDs_Div'> 
+      <div id='X3DOM_AOPT_Links' class='group' style='margin:26px 2px 2px; padding:4px; background-color:rgba(199,202,204,.7); position:absolute; z-index:1000;'> 
+        <a href='http://www.x3dom.org'>X3DOM
+        </a> output created with 
+        <a href='http://www.instantreality.org'>InstantReality
+        </a> aopt tool. 
+      </div> 
+      <div id='Interaction_Toolbox' style='margin:2px; padding:4px 150px 4px 4px; background-color:rgba(199,202,204,.7); position:absolute; z-index:1000; right:0px; top:0px;'> 
+        <table> 
+          <tr> 
+            <td>Navigation Mode: 
+            </td> 
+            <td align='right'> 
+              <select style='float:right;' onchange='document.getElementById(&apos;x3dElement&apos;).runtime[value]();'> 
+                <option selected='selected' value='examine'>Examine 
+                </option> 
+                <option value='turnTable'>TurnTable 
+                </option> 
+                <option value='lookAt'>LookAt 
+                </option> 
+                <option value='lookAround'>LookAround 
+                </option> 
+                <option value='fly'>Fly 
+                </option> 
+                <option value='freeFly'>FreeFly 
+                </option> 
+                <option value='helicopter'>Helicopter 
+                </option> 
+                <option value='walk'>Walk 
+                </option>  
+                <option value='noNav'>None 
+                </option> 
+              </select> 
+            </td> 
+          </tr> 
+          <tr> 
+            <td>Debug Display: 
+            </td> 
+            <td align='right'> 
+              <input type='checkbox' onclick='document.getElementById(&apos;x3dElement&apos;).runtime.statistics(this.checked);'> 
+              </input> Stats 
+              <input type='checkbox' onclick='document.getElementById(&apos;x3dElement&apos;).runtime.debug();'> 
+              </input> Log 
+            </td> 
+          </tr> 
+          <tr> 
+            <td> 
+              <button onclick='document.getElementById(&apos;x3dElement&apos;).runtime.showAll();'> Show Everything 
+              </button> 
+            </td> 
+            <td> 
+              <button onclick='document.getElementById(&apos;x3dElement&apos;).runtime.resetView();'> Reset View 
+              </button> 
+            </td> 
+          </tr> 
+        </table> 
+      </div> 
     </div>
     <x3d id='x3dElement' showStat='false' showLog='false' style='width:100%; height:100%; border:0; margin:0; padding:0;'>
-        <scene>
-            <Viewpoint position="3 2 -5" orientation="0 0 0 0" description="camera"></Viewpoint>
-            <navigationInfo avatarSize='0.25 1.75 0.75' type='"EXAMINE" "ANY"'></navigationInfo>
-            <background DEF='WO_World' groundColor='0.051 0.051 0.051' skyColor='0.051 0.051 0.051'></background>
-            <shape DEF='_G_1'>
-                <appearance>
-                    <material DEF='MA_Material_001' ambientIntensity='0.333' diffuseColor='0.026 0.04 0.068' shininess='0.098' specularColor='0.401 0.401 0.401'></material>
-                </appearance>
-                <binaryGeometry DEF='BG_0' vertexCount='5148' primType='"TRIANGLES"' position='6.53340339661 1.33378648758 -12.292547226' size='50.6498298645 2.75855565071 30.2687110901' coord='binGeo/BG_0_coordBinary.bin+8' normal='binGeo/BG_0_normalBinary.bin+4' coordType='Int16' normalType='Int8'></binaryGeometry>
-            </shape>
-            <group>
-                <shape DEF='_G_2'>
-                    <appearance>
-                        <material DEF='MA_Material_002' ambientIntensity='0.333' diffuseColor='0.823 0.823 0.823' shininess='0.098' specularColor='0.401 0.401 0.401'></material>
-                    </appearance>
-                    <binaryGeometry DEF='BG_2' vertexCount='87972' primType='"TRIANGLES"' position='6.3150844574 -0.0490513145924 -12.1344671249' size='50.9873466492 0.00755578279495 30.4232807159' coord='binGeo/BG_2_coordBinary.bin+8' normal='binGeo/BG_2_normalBinary.bin+4' coordType='Int16' normalType='Int8'></binaryGeometry>
-                </shape>
-            </group>
-            <shape DEF='_G_3'>
-                <appearance>
-                    <material DEF='MA_Material' ambientIntensity='0.333' diffuseColor='0.198 0.283 0.491' shininess='0.098' specularColor='0.401 0.401 0.401'></material>
-                </appearance>
-                <binaryGeometry DEF='BG_3' vertexCount='9480' primType='"TRIANGLES"' position='6.32100105286 1.35020554066 -12.314157486' size='51.2403907776 2.73310828209 30.428188324' coord='binGeo/BG_3_coordBinary.bin+8' normal='binGeo/BG_3_normalBinary.bin+4' coordType='Int16' normalType='Int8'></binaryGeometry>
-            </shape>
-            <transform rotation='1.58933e-008 0.707107 0.707107 3.14159' scale='0.167095 0.167095 0.167095' scaleOrientation='0.678598 0.281085 0.678598 1.46578' translation='9.68887 -0.016408 -12.2302'>
-                <shape DEF='_G_4'>
-                    <appearance>
-                        <material DEF='MA_Vetro' ambientIntensity='0.167' diffuseColor='0.546 0.708 0.799' shininess='0.998' specularColor='0.401 0.401 0.401' transparency='0.7'></material>
-                    </appearance>
-                    <binaryGeometry DEF='BG_1' vertexCount='1152' primType='"TRIANGLES"' position='18.9647979736 -0.383453369141 8.08168983459' size='302.8359375 180.744049072 16.2007141113' coord='binGeo/BG_1_coordBinary.bin+8' normal='binGeo/BG_1_normalBinary.bin+4' coordType='Int16' normalType='Int8'></binaryGeometry>
-                </shape>
-            </transform>
-        </scene>
+      <scene>
+        <navigationInfo avatarSize='0.25 1.75 0.75' headlight='false' type='"EXAMINE" "ANY"'></navigationInfo>
+        <background DEF='WO_World' groundColor='0.051 0.051 0.051' skyColor='0.051 0.051 0.051'></background>
+        <shape DEF='_G_1'>
+          <appearance></appearance>
+          <binaryGeometry DEF='BG_0' vertexCount='756' primType='"TRIANGLES"' position='4.18556022644 1.28145849705 -13.0327558517' size='43.7912521362 0.260849714279 22.4799671173' coord='binGeo/BG_0_coordBinary.bin+8' normal='binGeo/BG_0_normalBinary.bin+4' coordType='Int16' normalType='Int8'></binaryGeometry>
+        </shape>
+        <group>
+          <shape DEF='_G_2'>
+            <appearance>
+              <material DEF='MA_Material_002' ambientIntensity='0.333' diffuseColor='0.823 0.823 0.823' shininess='0.098' specularColor='0.401 0.401 0.401'></material>
+            </appearance>
+            <binaryGeometry DEF='BG_1' vertexCount='87972' primType='"TRIANGLES"' position='6.3150844574 0.0295548141003 -12.1344671249' size='50.9873466492 0.00755578279495 30.4232807159' coord='binGeo/BG_1_coordBinary.bin+8' normal='binGeo/BG_1_normalBinary.bin+4' coordType='Int16' normalType='Int8'></binaryGeometry>
+          </shape>
+        </group>
+        <shape DEF='_G_3'>
+          <appearance>
+            <material DEF='MA_Material' ambientIntensity='0.333' diffuseColor='0.198 0.283 0.491' shininess='0.098' specularColor='0.401 0.401 0.401'></material>
+          </appearance>
+          <binaryGeometry DEF='BG_2' vertexCount='9492' primType='"TRIANGLES"' position='6.32100105286 1.366553545 -12.314157486' size='51.2403907776 2.73310828209 30.428188324' coord='binGeo/BG_2_coordBinary.bin+8' normal='binGeo/BG_2_normalBinary.bin+4' coordType='Int16' normalType='Int8'></binaryGeometry>
+        </shape>
+        <shape DEF='_G_4'>
+          <appearance>
+            <material DEF='MA_Material_001' ambientIntensity='0.333' diffuseColor='0.026 0.04 0.068' shininess='0.098' specularColor='0.401 0.401 0.401'></material>
+          </appearance>
+          <binaryGeometry DEF='BG_3' vertexCount='5148' primType='"TRIANGLES"' position='6.53340339661 1.35227644444 -12.292547226' size='50.6498298645 2.75855565071 30.2687110901' coord='binGeo/BG_3_coordBinary.bin+8' normal='binGeo/BG_3_normalBinary.bin+4' coordType='Int16' normalType='Int8'></binaryGeometry>
+        </shape>
+        <transform rotation='1.58933e-008 0.707107 0.707107 3.14159' scale='0.167095 0.167095 0.167095' scaleOrientation='0.678598 0.281085 0.678598 1.46578' translation='9.68887 -0.000335 -12.2302'>
+          <shape DEF='_G_5'>
+            <appearance>
+              <material DEF='MA_Vetro' ambientIntensity='0.167' diffuseColor='0.546 0.708 0.799' shininess='0.998' specularColor='0.401 0.401 0.401' transparency='0.7'></material>
+            </appearance>
+            <binaryGeometry DEF='BG_4' vertexCount='1152' primType='"TRIANGLES"' position='18.9647979736 -0.383453369141 8.08168983459' size='302.8359375 180.744049072 16.2007141113' coord='binGeo/BG_4_coordBinary.bin+8' normal='binGeo/BG_4_normalBinary.bin+4' coordType='Int16' normalType='Int8'></binaryGeometry>
+          </shape>
+        </transform>
+      </scene>
     </x3d>
-</body>
-
+  </body>
 </html>
