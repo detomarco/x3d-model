@@ -6,7 +6,7 @@
 		<meta name="generator" content="Blender 2.76 (sub 0)" />
 	</head>
 	<Scene>
-		<NavigationInfo headlight="false"
+		<NavigationInfo headlight="true"
 		                visibilityLimit="0.0"
 		                type='"EXAMINE", "ANY"'
 		                avatarSize="0.25, 1.75, 0.75"
@@ -15,66 +15,6 @@
 		            groundColor="0.051 0.051 0.051"
 		            skyColor="0.051 0.051 0.051"
 		            />
-		<Transform DEF="Hemi_005_TRANSFORM"
-		           translation="6.071814 1.218044 -37.860939"
-		           scale="1.000000 1.000000 1.000000"
-		           rotation="0.000000 1.000000 -0.000000 3.141593"
-		           >
-			<DirectionalLight DEF="LA_Hemi_005"
-			                  ambientIntensity="0.0000"
-			                  color="1.0000 1.0000 1.0000"
-			                  intensity="1.0000"
-			                  direction="0.0000 0.0000 -1.0000"
-			                  />
-		</Transform>
-		<Transform DEF="Hemi_004_TRANSFORM"
-		           translation="45.269958 1.561841 -12.463485"
-		           scale="1.000000 1.000000 1.000000"
-		           rotation="-0.000000 1.000000 -0.000000 1.570796"
-		           >
-			<DirectionalLight DEF="LA_Hemi_004"
-			                  ambientIntensity="0.0000"
-			                  color="1.0000 1.0000 1.0000"
-			                  intensity="1.0000"
-			                  direction="-0.0000 0.0000 -1.0000"
-			                  />
-		</Transform>
-		<Transform DEF="Hemi_003_TRANSFORM"
-		           translation="5.943770 -11.133906 -12.380863"
-		           scale="1.000000 1.000000 1.000000"
-		           rotation="1.000000 0.000000 0.000000 1.570796"
-		           >
-			<DirectionalLight DEF="LA_Hemi_003"
-			                  ambientIntensity="0.0000"
-			                  color="1.0000 1.0000 1.0000"
-			                  intensity="1.0000"
-			                  direction="0.0000 0.0000 -1.0000"
-			                  />
-		</Transform>
-		<Transform DEF="Hemi_002_TRANSFORM"
-		           translation="-33.896500 1.561841 -12.463485"
-		           scale="1.000000 1.000000 1.000000"
-		           rotation="0.707107 0.000000 -0.707107 3.141593"
-		           >
-			<DirectionalLight DEF="LA_Hemi_002"
-			                  ambientIntensity="0.0000"
-			                  color="1.0000 1.0000 1.0000"
-			                  intensity="1.0000"
-			                  direction="-0.0000 0.0000 -1.0000"
-			                  />
-		</Transform>
-		<Transform DEF="Hemi_001_TRANSFORM"
-		           translation="6.071814 1.218044 11.288233"
-		           scale="1.000000 1.000000 1.000000"
-		           rotation="0.000000 -0.000000 1.000000 3.141593"
-		           >
-			<DirectionalLight DEF="LA_Hemi_001"
-			                  ambientIntensity="0.0000"
-			                  color="1.0000 1.0000 1.0000"
-			                  intensity="1.0000"
-			                  direction="0.0000 0.0000 -1.0000"
-			                  />
-		</Transform>
 		<Transform DEF="Plate_TRANSFORM"
 		           translation="-2.629241 4.280855 -9.633783"
 		           scale="0.900000 0.900000 0.900000"
@@ -99,18 +39,6 @@
 					</Shape>
 				</Group>
 			</Transform>
-		</Transform>
-		<Transform DEF="Hemi_TRANSFORM"
-		           translation="5.943770 13.916514 -12.380863"
-		           scale="1.000000 1.000000 1.000000"
-		           rotation="0.000000 0.707107 0.707107 3.141593"
-		           >
-			<DirectionalLight DEF="LA_Hemi"
-			                  ambientIntensity="0.0000"
-			                  color="1.0000 1.0000 1.0000"
-			                  intensity="1.0000"
-			                  direction="0.0000 0.0000 -1.0000"
-			                  />
 		</Transform>
 		<Transform DEF="Camera_TRANSFORM"
 		           translation="-15.161135 1.681604 -3.428019"
