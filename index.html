@@ -7,6 +7,7 @@
     <meta http-equiv='Content-Type' content='text/html;charset=utf-8' />
     <link rel='stylesheet' type='text/css' href='http://www.x3dom.org/x3dom/release/x3dom.css' />
     <script type='text/javascript' src='http://www.x3dom.org/x3dom/release/x3dom.js'></script>
+    <script type='text/javascript' src='script.js'></script>
     <style>
     .x3dom-logContainer {
         bottom: 0px;
@@ -17,10 +18,8 @@
 
 <body style='width:100%; height:100%; border:0; margin:0; padding:0;'>
     <div id='HUDs_Div'>
-        <div id='X3DOM_AOPT_Links' class='group' style='margin:26px 2px 2px; padding:4px; background-color:rgba(199,202,204,.7); position:absolute; z-index:1000;'>
-            <a href='http://www.x3dom.org'>X3DOM
-        </a> output created with
-            <a href='http://www.instantreality.org'>InstantReality
+        <div id='X3DOM_AOPT_Links'  style='margin:26px 2px 2px; padding:4px; background-color:rgba(199,202,204,.7); position:absolute; z-index:1000;'>
+            <a href='http://www.x3dom.org'>X3DOM</a> output created with<a href='http://www.instantreality.org'>InstantReality
         </a> aopt tool.
         </div>
         <div id='Interaction_Toolbox' style='margin:2px; padding:4px 150px 4px 4px; background-color:rgba(199,202,204,.7); position:absolute; z-index:1000; right:0px; top:0px;'>
@@ -29,33 +28,35 @@
                     <td>Navigation Mode:
                     </td>
                     <td align='right'>
-                        <select style='float:right;' onchange='document.getElementById(&apos;x3dElement&apos;).runtime[value]();'>
-                            <option selected='selected' value='examine'>Examine</option>
-                            <option value='lookAt'>LookAt</option>
-                            <option value='lookAround'>LookAround</option>
-                            <option value='walk'>Walk</option>
-                            <option value='noNav'>None</option>
+                        <select id="select-navigation">
+                            <option value='examine'>Examine
+                            </option>
+                            <option value='lookAt'>LookAt
+                            </option>
+                            <option value='lookAround'>LookAround
+                            </option>
+                            <option value='fly'>Fly
+                            </option>
+                            <option selected='selected' value='walk'>Walk
+                            </option>
+                            <option value='game'>Game
+                            </option>
+                            <option value='noNav'>None
+                            </option>
                         </select>
                     </td>
                 </tr>
                 <tr>
-                    <td>Debug Display:
-                    </td>
+                    <td>Office:</td>
                     <td align='right'>
-                        <input type='checkbox' onclick='document.getElementById(&apos;x3dElement&apos;).runtime.statistics(this.checked);'>
-                        </input> Stats
-                        <input type='checkbox' onclick='document.getElementById(&apos;x3dElement&apos;).runtime.debug();'>
-                        </input> Log
+                        <select id="office"></select>
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        <button onclick='document.getElementById(&apos;x3dElement&apos;).runtime.showAll("negY");'> Show Everything
-                        </button>
-                    </td>
-                    <td>
-                        <button onclick='document.getElementById(&apos;x3dElement&apos;).runtime.resetView();'> Reset View
-                        </button>
+                    <td colspan="2">
+                        <button id="show-all"> Show Everything</button>
+                        <button id="reset-view"> Reset View </button>
+                        <button id="upright-view"> Upright View</button>
                     </td>
                 </tr>
             </table>
@@ -63,43 +64,66 @@
     </div>
     <x3d id='x3dElement' showStat='false' showLog='false' style='width:100%; height:100%; border:0; margin:0; padding:0;'>
         <scene>
-            <navigationInfo avatarSize='0.25 1.75 0.75' headlight='false' type='"EXAMINE" "ANY"'></navigationInfo>
-            <viewpoint DEF='CA_Camera' position='-15.1611 1.6816 -3.42802' fieldOfView='0.858' orientation='0 -1 -1e-006 1.0472'></viewpoint>
-            <background DEF='WO_World' groundColor='0.051 0.051 0.051' skyColor='0.051 0.051 0.051'></background>
-            <group>
-                <shape DEF='_G_1'>
-                    <appearance>
-                        <material DEF='MA_Text' ambientIntensity='0.333' diffuseColor='0.047 0.047 0.047' shininess='0.098'></material>
-                    </appearance>
-                    <binaryGeometry DEF='BG_1' vertexCount='100368' primType='"TRIANGLES"' position='4.21007728577 1.27795600891 -12.9947776794' size='43.7170944214 0.24927842617 22.3795089722' coord='binGeo/BG_1_coordBinary.bin+8' normal='binGeo/BG_1_normalBinary.bin+4' coordType='Int16' normalType='Int8'></binaryGeometry>
-                </shape>
-            </group>
-            <shape DEF='_G_2'>
+            <navigationInfo avatarSize='0.25 1.75 0.75' headlight='false' type='"WALK"'></navigationInfo>
+            <background DEF='WO_World' groundColor='0.658 0.738 1' skyColor='0.658 0.738 1'></background>
+            <viewpoint DEF='CA_Init_View' position='-16.1611 1.24892 -3.42802' orientation="0 -1 -1e-006 1.0472" fieldOfView='0.858'></viewpoint>
+            <viewpoint DEF='CA_Office_19_View' position='1.13585 18.4143 -15.1682' orientation="-0 0.707107 0.707107 3.14159" fieldOfView='0.858'></viewpoint>
+            <viewpoint DEF='CA_Office_18_View' position='-3.83259 18.4143 -15.1682' orientation="-0 0.707107 0.707107 3.14159" fieldOfView='0.858'></viewpoint>
+            <viewpoint DEF='CA_Meeting_Room_View' position='-10.3498 18.4143 -18.5396' orientation="-0 0.707107 0.707107 3.14159" fieldOfView='0.858'></viewpoint>
+            <viewpoint DEF='CA_Office_17_View' position='-11.8488 18.4143 -9.62299' orientation="-0.57735 -0.57735 -0.57735 2.09439" fieldOfView='0.858'></viewpoint>
+            <viewpoint DEF='CA_Toilette_View' position='-13.9221 18.4143 0.523645' orientation="-1 0 0 1.5708" fieldOfView='0.858'></viewpoint>
+            <viewpoint DEF='CA_Office_16_View' position='-6.2645 18.4143 0.523645' orientation="-1 0 0 1.5708" fieldOfView='0.858'></viewpoint>
+            <viewpoint DEF='CA_Office_15_View' position='-1.45516 18.4143 0.523645' orientation="-1 0 0 1.5708" fieldOfView='0.858'></viewpoint>
+            <viewpoint DEF='CA_Office_14_View' position='8.72382 18.4143 0.523645' orientation="-1 0 0 1.5708" fieldOfView='0.858'></viewpoint>
+            <viewpoint DEF='CA_Office_13_View' position='13.5799 18.4143 0.523645' orientation="-1 0 0 1.5708" fieldOfView='0.858'></viewpoint>
+            <viewpoint DEF='CA_Office_12_View' position='18.9028 18.4143 0.523645' orientation="-1 0 0 1.5708" fieldOfView='0.858'></viewpoint>
+            <viewpoint DEF='CA_Office_11_View' position='23.7588 18.4143 0.523645' orientation="-1 0 0 1.5708" fieldOfView='0.858'></viewpoint>
+            <viewpoint DEF='CA_Office_10_View' position='29.1137 18.4143 -9.74372' orientation="-0.57735 0.57735 0.57735 2.09439" fieldOfView='0.858'></viewpoint>
+            <viewpoint DEF='CA_Office_09_View' position='29.1137 18.4143 -14.8425' orientation="-0.57735 0.57735 0.57735 2.09439" fieldOfView='0.858'></viewpoint>
+            <viewpoint DEF='CA_Office_08_View' position='29.1137 18.4143 -19.7173' orientation="-0.57735 0.57735 0.57735 2.09439" fieldOfView='0.858'></viewpoint>
+            <viewpoint DEF='CA_Office_07_View' position='29.1137 18.4143 -24.8721' orientation="-0.57735 0.57735 0.57735 2.09439" fieldOfView='0.858'></viewpoint>
+            <viewpoint DEF='CA_Office_06_View' position='21.1573 18.4143 -22.2387' orientation="-0 0.707107 0.707107 3.14159" fieldOfView='0.858'></viewpoint>
+            <viewpoint DEF='CA_Office_05_View' position='16.3386 18.4143 -22.2387' orientation="-0 0.707107 0.707107 3.14159" fieldOfView='0.858'></viewpoint>
+            <viewpoint DEF='CA_Office_04_View' position='11.9682 18.4143 -22.2387' orientation="-0 0.707107 0.707107 3.14159" fieldOfView='0.858'></viewpoint>
+            <viewpoint DEF='CA_Office_03_View' position='8.15806 18.4143 -22.2387' orientation="-0 0.707107 0.707107 3.14159" fieldOfView='0.858'></viewpoint>
+            <viewpoint DEF='CA_Office_02_View' position='1.09814 18.4143 -22.2387' orientation="-0 0.707107 0.707107 3.14159" fieldOfView='0.858'></viewpoint>
+            <viewpoint DEF='CA_Office_01_View' position='-3.83259 18.4143 -22.2387' orientation="-0 0.707107 0.707107 3.14159" fieldOfView='0.858'></viewpoint>
+            <directionalLight DEF='LA_Hemi' position="0 0.707107 0.707107 3.14159" direction="5.94377 39.9165 -12.3809" intensity='0.8571'></directionalLight>
+            <directionalLight DEF='LA_Hemi_005' position="0 1 -0 3.14159" direction="6.07181 1.21804 -66.8609" intensity='0.8571'></directionalLight>
+            <directionalLight DEF='LA_Hemi_004' position="-0 1 -0 1.5708" direction="63.27 1.56184 -12.4635" intensity='0.8571'></directionalLight>
+            <directionalLight DEF='LA_Hemi_003' position="1 0 0 1.5708" direction="5.94377 -39.1339 -12.3809" intensity='0.8571'></directionalLight>
+            <directionalLight DEF='LA_Hemi_002' position="0.707107 0 -0.707107 3.14159" direction="-47.8965 1.56184 -12.4635" intensity='0.8571'></directionalLight>
+            <directionalLight DEF='LA_Hemi_001' position="0 -0 1 3.14159" direction="6.07181 1.21804 28.2882" intensity='0.8571'></directionalLight>
+            <shape DEF='_G_1'>
                 <appearance>
-                    <material DEF='MA_Frame' ambientIntensity='0.333' diffuseColor='0.026 0.04 0.068' shininess='0.098' specularColor='0.401 0.401 0.401'></material>
+                    <material DEF='MA_Text' ambientIntensity='0.333' diffuseColor='0.047 0.047 0.047' shininess='0.098'></material>
                 </appearance>
-                <binaryGeometry DEF='BG_2' vertexCount='5154' primType='"TRIANGLES"' position='6.53340339661 1.35227644444 -12.292547226' size='50.6498298645 2.75855565071 30.2687110901' coord='binGeo/BG_2_coordBinary.bin+8' normal='binGeo/BG_2_normalBinary.bin+4' coordType='Int16' normalType='Int8'></binaryGeometry>
+                <binaryGeometry DEF='BG_1' vertexCount='98376' primType='"TRIANGLES"' position='4.21007728577 1.27795624733 -12.9947776794' size='43.7170944214 0.24927842617 22.3795089722' coord='binGeo/BG_1_coordBinary.bin+8' normal='binGeo/BG_1_normalBinary.bin+4' coordType='Int16' normalType='Int8'></binaryGeometry>
             </shape>
-            <shape DEF='_G_3'>
+            <shape DEF='_G_2'>
                 <appearance>
                     <material DEF='MA_Wall' ambientIntensity='0.333' diffuseColor='0.198 0.283 0.491' shininess='0.098' specularColor='0.401 0.401 0.401'></material>
                 </appearance>
-                <binaryGeometry DEF='BG_0' vertexCount='9498' primType='"TRIANGLES"' position='6.32100105286 1.366553545 -12.314157486' size='51.2403907776 2.73310828209 30.428188324' coord='binGeo/BG_0_coordBinary.bin+8' normal='binGeo/BG_0_normalBinary.bin+4' coordType='Int16' normalType='Int8'></binaryGeometry>
+                <binaryGeometry DEF='BG_0' vertexCount='9510' primType='"TRIANGLES"' position='6.32100105286 1.36371719837 -12.314157486' size='51.2403907776 2.73878073692 30.428188324' coord='binGeo/BG_0_coordBinary.bin+8' normal='binGeo/BG_0_normalBinary.bin+4' coordType='Int16' normalType='Int8'></binaryGeometry>
             </shape>
-            <group>
-                <shape DEF='_G_4'>
-                    <appearance>
-                        <material DEF='MA_Material_002' ambientIntensity='0.333' diffuseColor='0.823 0.823 0.823' shininess='0.098' specularColor='0.401 0.401 0.401'></material>
-                    </appearance>
-                    <binaryGeometry DEF='BG_3' vertexCount='87972' primType='"TRIANGLES"' position='6.3150844574 0.0295548141003 -12.1344671249' size='50.9873466492 0.00755578279495 30.4232807159' coord='binGeo/BG_3_coordBinary.bin+8' normal='binGeo/BG_3_normalBinary.bin+4' coordType='Int16' normalType='Int8'></binaryGeometry>
-                </shape>
-            </group>
+            <shape DEF='_G_3'>
+                <appearance>
+                    <material DEF='MA_Material_002' ambientIntensity='0.333' diffuseColor='0.823 0.823 0.823' shininess='0.098' specularColor='0.401 0.401 0.401'></material>
+                </appearance>
+                <binaryGeometry DEF='BG_4' vertexCount='87984' primType='"TRIANGLES"' position='6.3150806427 0.000465542078018 -12.1344671249' size='50.9873466492 0.0137806534767 30.4232807159' coord='binGeo/BG_4_coordBinary.bin+8' normal='binGeo/BG_4_normalBinary.bin+4' coordType='Int16' normalType='Int8'></binaryGeometry>
+            </shape>
+            <shape DEF='_G_4'>
+                <appearance>
+                    <material DEF='MA_Frame' ambientIntensity='0.333' diffuseColor='0.026 0.04 0.068' shininess='0.098' specularColor='0.401 0.401 0.401'></material>
+                </appearance>
+                <binaryGeometry DEF='BG_3' vertexCount='5154' primType='"TRIANGLES"' position='6.53340339661 1.36103773117 -12.292547226' size='50.6498298645 2.74103307724 30.2687110901' coord='binGeo/BG_3_coordBinary.bin+8' normal='binGeo/BG_3_normalBinary.bin+4' coordType='Int16' normalType='Int8'></binaryGeometry>
+            </shape>
             <transform rotation='1.58933e-008 0.707107 0.707107 3.14159' scale='0.9 0.9 0.9' scaleOrientation='0.678598 0.281085 0.678598 1.46578' translation='-2.62924 4.28086 -9.63378'>
                 <shape DEF='_G_5'>
                     <appearance>
                         <material DEF='MA_Plate' ambientIntensity='0.333' diffuseColor='0.8 0.579 0.173' shininess='0.098' specularColor='0.401 0.401 0.401' transparency='0.528736'></material>
                     </appearance>
-                    <binaryGeometry DEF='BG_4' vertexCount='756' primType='"TRIANGLES"' position='-7.57200241089 -3.77663612366 -3.33266496658' size='48.6569519043 24.9777297974 0.289822101593' coord='binGeo/BG_4_coordBinary.bin+8' normal='binGeo/BG_4_normalBinary.bin+4' coordType='Int16' normalType='Int8'></binaryGeometry>
+                    <binaryGeometry DEF='BG_5' vertexCount='756' primType='"TRIANGLES"' position='-7.57200241089 -3.77663612366 -3.33266496658' size='48.6569519043 24.9777297974 0.289822101593' coord='binGeo/BG_5_coordBinary.bin+8' normal='binGeo/BG_5_normalBinary.bin+4' coordType='Int16' normalType='Int8'></binaryGeometry>
                 </shape>
             </transform>
             <transform rotation='1.58933e-008 0.707107 0.707107 3.14159' scale='0.167095 0.167095 0.167095' scaleOrientation='0.678598 0.281085 0.678598 1.46578' translation='9.68887 -0.000335 -12.2302'>
@@ -107,26 +131,8 @@
                     <appearance>
                         <material DEF='MA_Glass' ambientIntensity='0.167' diffuseColor='0.546 0.708 0.799' shininess='0.998' specularColor='0.401 0.401 0.401' transparency='0.7'></material>
                     </appearance>
-                    <binaryGeometry DEF='BG_5' vertexCount='1152' primType='"TRIANGLES"' position='18.9647979736 -0.383453369141 8.08168983459' size='302.8359375 180.744049072 16.2007141113' coord='binGeo/BG_5_coordBinary.bin+8' normal='binGeo/BG_5_normalBinary.bin+4' coordType='Int16' normalType='Int8'></binaryGeometry>
+                    <binaryGeometry DEF='BG_2' vertexCount='1152' primType='"TRIANGLES"' position='18.9647979736 -0.383453369141 8.092004776' size='302.8359375 180.744049072 16.1800823212' coord='binGeo/BG_2_coordBinary.bin+8' normal='binGeo/BG_2_normalBinary.bin+4' coordType='Int16' normalType='Int8'></binaryGeometry>
                 </shape>
-            </transform>
-            <transform DEF='Hemi_005_TRANSFORM' rotation='0 1 -0 3.14159' translation='6.07181 1.21804 -66.8609'>
-                <directionalLight DEF='LA_Hemi_005' intensity='0.8571'></directionalLight>
-            </transform>
-            <transform DEF='Hemi_004_TRANSFORM' rotation='-0 1 -0 1.5708' translation='63.27 1.56184 -12.4635'>
-                <directionalLight DEF='LA_Hemi_004' intensity='0.8571'></directionalLight>
-            </transform>
-            <transform DEF='Hemi_003_TRANSFORM' rotation='1 0 0 1.5708' translation='5.94377 -39.1339 -12.3809'>
-                <directionalLight DEF='LA_Hemi_003' intensity='0.8571'></directionalLight>
-            </transform>
-            <transform DEF='Hemi_002_TRANSFORM' rotation='0.707107 0 -0.707107 3.14159' translation='-47.8965 1.56184 -12.4635'>
-                <directionalLight DEF='LA_Hemi_002' intensity='0.8571'></directionalLight>
-            </transform>
-            <transform DEF='Hemi_001_TRANSFORM' rotation='0 -0 1 3.14159' translation='6.07181 1.21804 28.2882'>
-                <directionalLight DEF='LA_Hemi_001' intensity='0.8571'></directionalLight>
-            </transform>
-            <transform DEF='Hemi_TRANSFORM' rotation='0 0.707107 0.707107 3.14159' translation='5.94377 39.9165 -12.3809'>
-                <directionalLight DEF='LA_Hemi' intensity='0.8571'></directionalLight>
             </transform>
         </scene>
     </x3d>
