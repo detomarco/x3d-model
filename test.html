@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html style='width:100%; height:100%; border:0; margin:0; padding:0;'>
+  <head>
+    <meta http-equiv='X-UA-Compatible' content='chrome=1'/>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'/>
+    <meta http-equiv='Content-Type' content='text/html;charset=utf-8'/>
+    <link rel='stylesheet' type='text/css' href='http://www.x3dom.org/x3dom/release/x3dom.css'/>
+    <script type='text/javascript' src='http://www.x3dom.org/x3dom/release/x3dom.js'></script>
+    <style>.x3dom-logContainer { bottom: 0px; position: absolute; }
+    </style>
+  </head>
+  <body style='width:100%; height:100%; border:0; margin:0; padding:0;'>
+    <div id='HUDs_Div'> 
+      <div id='X3DOM_AOPT_Links' class='group' style='margin:26px 2px 2px; padding:4px; background-color:rgba(199,202,204,.7); position:absolute; z-index:1000;'> 
+        <a href='http://www.x3dom.org'>X3DOM
+        </a> output created with 
+        <a href='http://www.instantreality.org'>InstantReality
+        </a> aopt tool. 
+      </div> 
+      <div id='Interaction_Toolbox' style='margin:2px; padding:4px 150px 4px 4px; background-color:rgba(199,202,204,.7); position:absolute; z-index:1000; right:0px; top:0px;'> 
+        <table> 
+          <tr> 
+            <td>Navigation Mode: 
+            </td> 
+            <td align='right'> 
+              <select style='float:right;' onchange='document.getElementById(&apos;x3dElement&apos;).runtime[value]();'> 
+                <option selected='selected' value='examine'>Examine 
+                </option> 
+                <option value='turnTable'>TurnTable 
+                </option> 
+                <option value='lookAt'>LookAt 
+                </option> 
+                <option value='lookAround'>LookAround 
+                </option> 
+                <option value='fly'>Fly 
+                </option> 
+                <option value='freeFly'>FreeFly 
+                </option> 
+                <option value='helicopter'>Helicopter 
+                </option> 
+                <option value='walk'>Walk 
+                </option>  
+                <option value='noNav'>None 
+                </option> 
+              </select> 
+            </td> 
+          </tr> 
+          <tr> 
+            <td>Debug Display: 
+            </td> 
+            <td align='right'> 
+              <input type='checkbox' onclick='document.getElementById(&apos;x3dElement&apos;).runtime.statistics(this.checked);'> 
+              </input> Stats 
+              <input type='checkbox' onclick='document.getElementById(&apos;x3dElement&apos;).runtime.debug();'> 
+              </input> Log 
+            </td> 
+          </tr> 
+          <tr> 
+            <td> 
+              <button onclick='document.getElementById(&apos;x3dElement&apos;).runtime.showAll();'> Show Everything 
+              </button> 
+            </td> 
+            <td> 
+              <button onclick='document.getElementById(&apos;x3dElement&apos;).runtime.resetView();'> Reset View 
+              </button> 
+            </td> 
+          </tr> 
+        </table> 
+      </div> 
+    </div>
+    <x3d id='x3dElement' showStat='false' showLog='false' style='width:100%; height:100%; border:0; margin:0; padding:0;'>
+      <scene>
+        <navigationInfo avatarSize='0.25 1.75 0.75' headlight='false' type='"WALK" "ANY"' speed="8"></navigationInfo>
+        <background DEF='WO_World' groundColor='0.051 0.051 0.051' skyColor='0.051 0.051 0.051'></background>
+        <transform DEF='Hemi_TRANSFORM' rotation='0 0.707107 0.707107 3.14159' translation='0 7.8643 0'>
+          <directionalLight DEF='LA_Hemi' intensity='0.5714'></directionalLight>
+        </transform>
+        <transform DEF='Camera_TRANSFORM' rotation='0.007087 -0.999971 -0.002935 2.35622' translation='-3.76115 1.35855 0'>
+          <viewpoint DEF='CA_Camera' position='-0 -0 -0' fieldOfView='0.858'></viewpoint>
+        </transform>
+        <transform DEF='Plane_TRANSFORM' rotation='0 0.707107 0.707107 3.14159' scale='13.5986 13.5986 13.5986'>
+          <transform DEF='Plane_ifs_TRANSFORM'>
+            <group DEF='group_ME_Plane'>
+              <shape>
+                <appearance></appearance>
+                <indexedFaceSet solid='false' coordIndex='0 1 3 2 -1'>
+                  <coordinate DEF='coords_ME_Plane' point='-1 -1 0 1 -1 0 -1 1 0 1 1 0'></coordinate>
+                </indexedFaceSet>
+              </shape>
+            </group>
+          </transform>
+        </transform>
+      </scene>
+    </x3d>
+  </body>
+</html>
